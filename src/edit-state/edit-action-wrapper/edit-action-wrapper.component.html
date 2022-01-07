@@ -1,0 +1,14 @@
+<div>
+  edit-action-wrapper content begins here
+  <div *ngIf="editAction$ | async; let editAction">
+    Component editActions is assigned and editing is: {{ editAction.editing }}
+
+    <br />
+    <ng-container *ngIf="editAction.editing && template">
+      <ng-container
+        *ngTemplateOutlet="template; context: { model: editAction.model }"
+      >
+      </ng-container>
+    </ng-container>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<hello name="{{ name }}"></hello>
+<p>Start editing to see some magic happen :)</p>
+
+<app-edit-action-wrapper [editControl]="'test'" [template]="externalTemplate">
+</app-edit-action-wrapper>
+
+<button (click)="onSwitchEditing(true)">Begin Edit</button>
+<button (click)="onSwitchEditing(false)">End Edit</button>
+<!-- 
+<div *ngIf="editState$ | async; let editState">
+  editState.currentEdits is {{ editState.currentEdits }}
+</div>
+
+<div *ngIf="editActions$ | async; let editActions">
+  editActions is assigned
+  <br />
+
+  Edit Action "Test" Editing is: {{ editActions['test'].editing }}
+</div>
+
+<div *ngIf="editActionTest$ | async; let editActionTest">
+  Direct editActions is assigned
+
+  {{ editActionTest.editing }}
+</div> -->
+
+<ng-template #externalTemplate let-model="model">
+  Hello From External Template.
+  <br />
+  Model is: {{ model || 'undefined' }}
+  <br />
+  Model.title is: {{ (model && model.title) || 'undefined' }}
+</ng-template>
